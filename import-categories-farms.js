@@ -6,13 +6,16 @@ const API_URL = 'https://thegd33.calitek-junior.workers.dev';
 
 // Données des catégories
 const categories = [
-  {id: 2, name: "VAPE THC 💨", icon: "📦", description: "Vapes THC premium"},
-  {id: 4, name: "WEED 🥬🍀", icon: "📦", description: "Weed de qualité"},
+  // HASH EN PREMIER
   {id: 5, name: "90U TOP 🇲🇦", icon: "📦", description: "Hash 90U"},
   {id: 6, name: "120u Premium 🥇", icon: "📦", description: "Hash 120U Premium"},
-  {id: 7, name: "CALI CANADA 🇨🇦", icon: "🏷️", description: "Weed Cali & Canada"},
   {id: 8, name: "FRESH FROZEN ❄️🧊", icon: "🏷️", description: "Fresh Frozen Hash"},
   {id: 9, name: "PLASMASTATIC ⚡️👨🏽‍🔬", icon: "🏷️", description: "Plasmastatic Hash"},
+  // WEED EN DEUXIÈME
+  {id: 4, name: "WEED 🥬🍀", icon: "📦", description: "Weed de qualité"},
+  {id: 7, name: "CALI CANADA 🇨🇦", icon: "🏷️", description: "Weed Cali & Canada"},
+  // AUTRES APRÈS
+  {id: 2, name: "VAPE THC 💨", icon: "📦", description: "Vapes THC premium"},
   {id: 10, name: "SERINGUE THC 💨", icon: "🏷️", description: "Seringues THC"}
 ];
 
