@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const Products = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
   const [products, setProducts] = useState([])
   const [allProducts, setAllProducts] = useState([])
   const [categories, setCategories] = useState([])
@@ -18,6 +19,14 @@ const Products = () => {
   useEffect(() => {
     fetchData()
   }, [])
+
+  useEffect(() => {
+    // Récupérer les paramètres d'URL au chargement
+    const categoryParam = searchParams.get('category')
+    if (categoryParam) {
+      setSelectedCategory(categoryParam)
+    }
+  }, [searchParams])
 
   useEffect(() => {
     filterProducts()
@@ -85,13 +94,14 @@ const Products = () => {
 
   return (
     <div className="min-h-screen cosmic-bg">
-      <div className="pt-20 pb-32 px-4">
+      <Header />
+      <div className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12 flex flex-col items-center"
+            className="text-center mb-10 flex flex-col items-center"
           >
             <div className="inline-block bg-black/90 backdrop-blur-xl rounded-full px-16 py-10 border-2 border-white/30 shadow-[0_0_40px_rgba(0,0,0,0.8)] mb-8">
               <h1 className="text-5xl md:text-7xl font-bold mb-3 text-white">
@@ -194,7 +204,7 @@ const Products = () => {
               <p className="text-gray-400 text-xl">Aucun produit disponible pour le moment</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
               {products.map((product, index) => (
                 <ProductCard 
                   key={product.id} 
@@ -221,8 +231,6 @@ const Products = () => {
           />
         )}
       </AnimatePresence>
-
-      <Footer />
     </div>
   )
 }
@@ -275,7 +283,7 @@ const ProductCard = ({ product, index, onPreview, categories, farms }) => {
       className="neon-border rounded-2xl overflow-hidden bg-slate-900/50 backdrop-blur-sm group cursor-pointer"
     >
       {/* Image ou Vidéo */}
-      <div className="relative h-64 overflow-hidden bg-slate-800" onClick={onPreview}>
+      <div className="relative h-48 md:h-64 overflow-hidden bg-slate-800" onClick={onPreview}>
         {displayImage ? (
           isCloudflareStreamIframe(displayImage) ? (
             <iframe
@@ -316,23 +324,23 @@ const ProductCard = ({ product, index, onPreview, categories, farms }) => {
       </div>
 
       {/* Info */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-theme-heading mb-2 group-hover:text-gradient transition-all">
+      <div className="p-4 md:p-6">
+        <h3 className="text-lg md:text-xl font-bold text-theme-heading mb-2 group-hover:text-gradient transition-all line-clamp-2">
           {product.name}
         </h3>
-        <p className="text-theme-secondary text-sm mb-4 line-clamp-2">
+        <p className="text-theme-secondary text-xs md:text-sm mb-3 line-clamp-2">
           {product.description}
         </p>
         
         {/* Catégorie et Farm */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1 md:gap-2 mb-3">
           {categoryName && (
-            <span className="px-2 py-1 bg-gray-700/30 border border-gray-600/50 rounded-full text-theme-secondary text-xs">
+            <span className="px-1.5 py-0.5 md:px-2 md:py-1 bg-gray-700/30 border border-gray-600/50 rounded-full text-theme-secondary text-xs">
               🏷️ {categoryName}
             </span>
           )}
           {farmName && (
-            <span className="px-2 py-1 bg-gray-700/30 border border-gray-600/50 rounded-full text-theme-secondary text-xs">
+            <span className="px-1.5 py-0.5 md:px-2 md:py-1 bg-gray-700/30 border border-gray-600/50 rounded-full text-theme-secondary text-xs">
               🌾 {farmName}
             </span>
           )}
@@ -340,12 +348,12 @@ const ProductCard = ({ product, index, onPreview, categories, farms }) => {
         
         <div className="flex items-center justify-between gap-2">
           {product.variants && product.variants.length > 1 && (
-            <p className="text-sm text-theme-secondary">
-              {product.variants.length} options disponibles
+            <p className="text-xs md:text-sm text-theme-secondary">
+              {product.variants.length} options
             </p>
           )}
           <Link to={`/products/${product.id}`} className="ml-auto">
-            <button className="px-4 py-2 bg-gradient-to-r from-white to-gray-200 rounded-lg text-black font-semibold hover:from-gray-200 hover:to-gray-400 transition-all">
+            <button className="px-3 py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-white to-gray-200 rounded-lg text-black font-semibold hover:from-gray-200 hover:to-gray-400 transition-all text-sm md:text-base">
               Voir
             </button>
           </Link>

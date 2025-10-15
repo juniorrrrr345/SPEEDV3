@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -121,7 +121,8 @@ const ProductDetail = () => {
 
   return (
     <div className="min-h-screen cosmic-bg">
-      <div className="pt-20 pb-32 px-4">
+      <Header />
+      <div className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <motion.div
@@ -319,8 +320,6 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }

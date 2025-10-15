@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const Contact = () => {
   const [socials, setSocials] = useState([])
@@ -16,13 +16,14 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen cosmic-bg">
-      <div className="pt-20 pb-32 px-4">
+      <Header />
+      <div className="pt-24 pb-16 px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16 flex justify-center"
+            className="text-center mb-12 flex justify-center"
           >
             <div className="inline-block bg-black/90 backdrop-blur-xl rounded-full px-16 py-10 border-2 border-white/30 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
               <h1 className="text-5xl md:text-7xl font-bold mb-3 text-white">
@@ -61,8 +62,6 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }

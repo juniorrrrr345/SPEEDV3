@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 const Categories = () => {
   const [categories, setCategories] = useState([])
@@ -21,9 +21,11 @@ const Categories = () => {
         const products = await getAll('products')
         const counts = {}
         products.forEach(product => {
-          const cat = product.category
-          counts[cat] = (counts[cat] || 0) + 1
+          const catId = product.category
+          counts[catId] = (counts[catId] || 0) + 1
         })
+        console.log('Categories - Products by category:', counts)
+        console.log('Categories - Categories:', cats)
         setProductCounts(counts)
       } catch (error) {
         console.error('Erreur lors du chargement des catégories:', error)
@@ -56,13 +58,14 @@ const Categories = () => {
 
   return (
     <div className="min-h-screen cosmic-bg">
-      <div className="pt-20 pb-32 px-4">
+      <Header />
+      <div className="pt-24 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16 flex justify-center"
+            className="text-center mb-12 flex justify-center"
           >
             <div className="inline-block bg-black/90 backdrop-blur-xl rounded-full px-16 py-10 border-2 border-white/30 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
               <h1 className="text-5xl md:text-7xl font-bold mb-3 text-white">
@@ -80,13 +83,13 @@ const Categories = () => {
               <p className="text-theme-secondary text-xl">Aucune catégorie disponible pour le moment</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
               {categories.map((category, index) => (
                 <CategoryCard 
                   key={category.id} 
                   category={category} 
                   index={index}
-                  count={productCounts[category.name] || 0}
+                  count={productCounts[category.id] || 0}
                   gradient={gradients[index % gradients.length]}
                 />
               ))}
@@ -94,8 +97,6 @@ const Categories = () => {
           )}
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }
@@ -109,9 +110,9 @@ const CategoryCard = ({ category, index, count, gradient }) => {
       whileHover={{ scale: 1.05, y: -10 }}
       className="neon-border rounded-2xl overflow-hidden bg-slate-900/50 backdrop-blur-sm group cursor-pointer"
     >
-      <Link to="/products" className="block">
+      <Link to={`/products?category=${category.id}`} className="block">
         {/* Icon/Image Section */}
-        <div className={`relative h-48 flex items-center justify-center ${category.icon && category.icon.startsWith('http') ? 'bg-slate-800' : `bg-gradient-to-br ${gradient}`} overflow-hidden`}>
+        <div className={`relative h-40 md:h-48 flex items-center justify-center ${category.icon && category.icon.startsWith('http') ? 'bg-slate-800' : `bg-gradient-to-br ${gradient}`} overflow-hidden`}>
           {category.icon && category.icon.startsWith('http') ? (
             <img 
               src={category.icon} 
@@ -128,23 +129,23 @@ const CategoryCard = ({ category, index, count, gradient }) => {
           )}
           
           {/* Count Badge */}
-          <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1">
-            <span className="text-theme-heading font-bold">{count} produit{count !== 1 ? 's' : ''}</span>
+          <div className="absolute top-2 right-2 md:top-4 md:right-4 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1 md:px-3">
+            <span className="text-theme-heading font-bold text-xs md:text-sm">{count} produit{count !== 1 ? 's' : ''}</span>
           </div>
         </div>
 
         {/* Info Section */}
-        <div className="p-6">
-          <h3 className="text-2xl font-bold text-theme-heading mb-2 group-hover:text-gradient transition-all">
+        <div className="p-4 md:p-6">
+          <h3 className="text-lg md:text-2xl font-bold text-theme-heading mb-2 group-hover:text-gradient transition-all line-clamp-2">
             {category.name}
           </h3>
-          <p className="text-theme-secondary group-hover:text-theme transition-colors">
+          <p className="text-theme-secondary group-hover:text-theme transition-colors text-sm md:text-base line-clamp-2">
             {category.description}
           </p>
           
-          <div className="mt-4 flex items-center text-theme-heading font-semibold group-hover:translate-x-2 transition-transform">
+          <div className="mt-3 md:mt-4 flex items-center text-theme-heading font-semibold group-hover:translate-x-2 transition-transform text-sm md:text-base">
             <span>Voir les produits</span>
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </div>
