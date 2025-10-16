@@ -72,6 +72,24 @@ const Products = () => {
       filtered = filtered.filter(product => String(product.farm) === String(selectedFarm))
     }
 
+    // Trier pour mettre GAZ SÉLECTION en premier
+    filtered.sort((a, b) => {
+      // Trouver les noms des farms pour les comparer
+      const farmA = farms.find(f => String(f.id) === String(a.farm))?.name || ''
+      const farmB = farms.find(f => String(f.id) === String(b.farm))?.name || ''
+      
+      // Si A est GAZ SÉLECTION et B ne l'est pas, A vient en premier
+      if (farmA.includes('GAZ SÉLECTION') && !farmB.includes('GAZ SÉLECTION')) {
+        return -1
+      }
+      // Si B est GAZ SÉLECTION et A ne l'est pas, B vient en premier
+      if (farmB.includes('GAZ SÉLECTION') && !farmA.includes('GAZ SÉLECTION')) {
+        return 1
+      }
+      // Sinon, garder l'ordre original
+      return 0
+    })
+
     setProducts(filtered)
   }
 
