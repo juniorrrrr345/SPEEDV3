@@ -125,7 +125,7 @@ const formData = new FormData()
 formData.append('file', testFile)
 
 // Upload
-fetch('https://thegd33.calitek-junior.workers.dev/api/upload', {
+fetch('https://speedv3-worker.calitek-junior.workers.dev/api/upload', {
   method: 'POST',
   body: formData
 })

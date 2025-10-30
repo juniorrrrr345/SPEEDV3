@@ -2,7 +2,7 @@
  * API Client pour communiquer avec Cloudflare Worker
  */
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://calitekv3.calitek-junior.workers.dev'
+const API_URL = import.meta.env.VITE_API_URL || 'https://speedv3-worker.calitek-junior.workers.dev'
 
 // ============ PRODUCTS ============
 export const getAll = async (type) => {

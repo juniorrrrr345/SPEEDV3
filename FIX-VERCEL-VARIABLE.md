@@ -31,7 +31,7 @@ Cliquez sur **"Add New"** ou **"Add Variable"**
 
 **Remplissez** :
 - **Name (Key)** : `VITE_API_URL`
-- **Value** : `https://thegd33.calitek-junior.workers.dev`
+- **Value** : `https://speedv3-worker.calitek-junior.workers.dev`
 - **Environments** : Cochez **TOUS** (Production, Preview, Development)
 
 ### 6. Save
@@ -105,7 +105,7 @@ Cela forcera un nouveau déploiement complet.
 ## 📊 Checklist
 
 - [ ] Variable `VITE_API_URL` ajoutée sur Vercel
-- [ ] Valeur : `https://thegd33.calitek-junior.workers.dev`
+- [ ] Valeur : `https://speedv3-worker.calitek-junior.workers.dev`
 - [ ] Tous les environnements cochés
 - [ ] Redéployé SANS cache
 - [ ] Attendu 2-3 minutes
@@ -122,7 +122,7 @@ Si après tout ça, ça ne marche toujours pas :
 
 2. **Tapez** :
    ```javascript
-   fetch('https://thegd33.calitek-junior.workers.dev/api/settings')
+   fetch('https://speedv3-worker.calitek-junior.workers.dev/api/settings')
      .then(r => r.json())
      .then(console.log)
    ```

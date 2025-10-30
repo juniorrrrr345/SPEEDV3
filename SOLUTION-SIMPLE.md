@@ -2,7 +2,7 @@
 
 ## 🎯 Situation
 
-Le worker `thegd33.calitek-junior.workers.dev` n'est **PAS sur votre compte**.
+Le worker `speedv3-worker.calitek-junior.workers.dev` n'est **PAS sur votre compte**.
 
 Il est sur le compte de quelqu'un d'autre ("calitek-junior") qui a activé la protection.
 

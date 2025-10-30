@@ -121,9 +121,9 @@ VALUES ('id', 'nom', 'icône', 'description', 'url');
 Une fois tout importé, vérifiez :
 
 ```
-https://thegd33.calitek-junior.workers.dev/api/products
-https://thegd33.calitek-junior.workers.dev/api/categories
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/products
+https://speedv3-worker.calitek-junior.workers.dev/api/categories
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 Vous devriez voir toutes vos données !

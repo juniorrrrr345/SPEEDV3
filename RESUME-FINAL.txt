@@ -19,8 +19,8 @@ Votre site sur Vercel affiche des erreurs JSON car :
 
 1. Allez sur : https://dash.cloudflare.com
 2. Zero Trust → Access → Applications
-3. Désactivez : thegd33.calitek-junior.workers.dev
-4. Testez : https://thegd33.calitek-junior.workers.dev/api/settings
+3. Désactivez : speedv3-worker.calitek-junior.workers.dev
+4. Testez : https://speedv3-worker.calitek-junior.workers.dev/api/settings
    (Doit afficher du JSON)
 
 ════════════════════════════════════════════════════════

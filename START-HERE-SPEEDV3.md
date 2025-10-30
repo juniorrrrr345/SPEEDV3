@@ -46,7 +46,7 @@ Configurer les secrets et déployer le worker Cloudflare.
 npx wrangler secret put DEFAULT_ADMIN_USERNAME
 npx wrangler secret put DEFAULT_ADMIN_PASSWORD
 npx wrangler deploy
-curl https://SPEEDV3.VOTRE-USERNAME.workers.dev/api/init
+curl https://speedv3-worker.calitek-junior.workers.dev/api/init
 ```
 
 ### 🔴 ÉTAPE 3 : Déployer sur Vercel (5 min)
@@ -100,7 +100,7 @@ npx wrangler deploy
 # Notez l'URL du worker et mettez-la dans .env.local
 
 # 4. Initialisation
-curl https://SPEEDV3.VOTRE-USERNAME.workers.dev/api/init
+curl https://speedv3-worker.calitek-junior.workers.dev/api/init
 
 # 5. GitHub
 git add .
@@ -109,7 +109,7 @@ git push -u origin main
 
 # 6. Vercel (via dashboard)
 # - Importer le dépôt speedv3
-# - Ajouter VITE_API_URL = https://SPEEDV3.VOTRE-USERNAME.workers.dev
+# - Ajouter VITE_API_URL = https://speedv3-worker.calitek-junior.workers.dev
 # - Déployer
 
 # 7. Configuration

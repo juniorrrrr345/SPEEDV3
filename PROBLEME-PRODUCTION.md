@@ -9,7 +9,7 @@ Quand votre application essaie d'appeler l'API, Cloudflare renvoie une **page HT
 ## 🔍 Preuve
 
 ```bash
-curl https://thegd33.calitek-junior.workers.dev/api/settings
+curl https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 Renvoie une **redirection 302** vers :
@@ -32,7 +32,7 @@ Vous devez **désactiver Cloudflare Access** pour ce worker OU le configurer pou
    - Dans le menu de gauche : `Zero Trust` → `Access` → `Applications`
 
 3. **Trouvez votre worker** :
-   - Cherchez : `thegd33.calitek-junior.workers.dev`
+   - Cherchez : `speedv3-worker.calitek-junior.workers.dev`
 
 4. **Désactivez ou supprimez la protection** :
    - Cliquez sur l'application
@@ -41,7 +41,7 @@ Vous devez **désactiver Cloudflare Access** pour ce worker OU le configurer pou
 
 5. **Testez** :
    ```bash
-   curl https://thegd33.calitek-junior.workers.dev/api/settings
+   curl https://speedv3-worker.calitek-junior.workers.dev/api/settings
    ```
    Vous devriez maintenant recevoir du JSON au lieu d'une redirection.
 
@@ -62,7 +62,7 @@ Configuration avancée pour autoriser votre frontend Vercel uniquement.
 Après avoir désactivé Cloudflare Access, testez :
 
 ```bash
-curl https://thegd33.calitek-junior.workers.dev/api/settings
+curl https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 Vous devriez voir :

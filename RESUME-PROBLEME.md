@@ -13,7 +13,7 @@ Error fetching settings: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is n
 ## 🔍 Explication Simple
 
 1. Votre application frontend essaie de charger des données depuis une API
-2. L'API est censée être sur `https://thegd33.calitek-junior.workers.dev`
+2. L'API est censée être sur `https://speedv3-worker.calitek-junior.workers.dev`
 3. Mais cette URL n'est pas accessible (worker non déployé)
 4. Cloudflare renvoie une page HTML d'erreur (qui commence par `<!DOCTYPE`)
 5. L'application s'attend à du JSON, pas du HTML → erreur !

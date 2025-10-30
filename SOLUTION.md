@@ -5,7 +5,7 @@
 ### Le problème
 Votre panel admin essaie de charger des données depuis l'API Cloudflare Worker à l'adresse :
 ```
-https://thegd33.calitek-junior.workers.dev
+https://speedv3-worker.calitek-junior.workers.dev
 ```
 
 Mais cette URL renvoie **du HTML** au lieu de **JSON**, d'où les erreurs :
@@ -53,7 +53,7 @@ npm run deploy:worker
 ```
 
 #### Étape 3 : Initialiser la base de données en production
-Ouvrir dans le navigateur : `https://thegd33.calitek-junior.workers.dev/api/init`
+Ouvrir dans le navigateur : `https://speedv3-worker.calitek-junior.workers.dev/api/init`
 
 #### Étape 4 : Le panel admin fonctionnera automatiquement
 L'application est déjà configurée pour utiliser l'URL de production en production.

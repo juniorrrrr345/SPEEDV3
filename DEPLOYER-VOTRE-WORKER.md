@@ -2,7 +2,7 @@
 
 ## 🎯 Pourquoi ?
 
-Le worker `thegd33.calitek-junior.workers.dev` est sur un autre compte et quelqu'un réactive Cloudflare Access régulièrement.
+Le worker `speedv3-worker.calitek-junior.workers.dev` est sur un autre compte et quelqu'un réactive Cloudflare Access régulièrement.
 
 **Solution** : Créez VOTRE propre worker sur VOTRE compte !
 
@@ -103,7 +103,7 @@ Ouvrez `src/utils/api.js` et `src/utils/cloudflare.js`
 
 Remplacez :
 ```javascript
-const API_URL = import.meta.env.VITE_API_URL || 'https://thegd33.calitek-junior.workers.dev'
+const API_URL = import.meta.env.VITE_API_URL || 'https://speedv3-worker.calitek-junior.workers.dev'
 ```
 
 Par :

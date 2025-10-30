@@ -118,7 +118,7 @@ npx wrangler secret put DEFAULT_ADMIN_PASSWORD
 npx wrangler deploy
 
 # Initialisation
-curl https://SPEEDV3.VOTRE-USERNAME.workers.dev/api/init
+curl https://speedv3-worker.calitek-junior.workers.dev/api/init
 
 # GitHub
 git add .

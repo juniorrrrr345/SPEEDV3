@@ -41,7 +41,7 @@ const produitsAnciens = [
   {id:51,name:"ABRICOT JELLY 🍏",description:"🎯 Pur à 91%THC | THC ⚡ Effet ultra rapide & intense 💎 Qualité distillat premium • Sans coupe •",category_id:10,farm_id:3,image_url:"https://pub-b38679a01a274648827751df94818418.r2.dev/images/1760392391555-9z2epxbooij.jpeg",video_url:null,prices:{"1 SERINGUE 💉":60,"3 SERINGUES 💉":150,"10 SERINGUES 💉":450}}
 ];
 
-const API_URL = 'https://thegd33.calitek-junior.workers.dev';
+const API_URL = 'https://speedv3-worker.calitek-junior.workers.dev';
 
 console.log(`🔄 Import de ${produitsAnciens.length} produits vers gd33v3\n`);
 

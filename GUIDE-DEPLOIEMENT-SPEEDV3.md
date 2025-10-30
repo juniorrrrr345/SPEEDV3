@@ -84,14 +84,14 @@ npx wrangler secret put DEFAULT_ADMIN_PASSWORD
 npx wrangler deploy
 
 # ⚠️ IMPORTANT : Notez l'URL du worker qui s'affiche !
-# Elle ressemble à : https://SPEEDV3.VOTRE-USERNAME.workers.dev
+# Elle ressemble à : https://speedv3-worker.calitek-junior.workers.dev
 ```
 
 **Action requise :**
 Éditez le fichier `.env.local` avec l'URL de votre worker :
 
 ```env
-VITE_API_URL=https://SPEEDV3.VOTRE-USERNAME.workers.dev
+VITE_API_URL=https://speedv3-worker.calitek-junior.workers.dev
 ```
 
 ---
@@ -100,7 +100,7 @@ VITE_API_URL=https://SPEEDV3.VOTRE-USERNAME.workers.dev
 
 ```bash
 # Remplacez VOTRE-URL-WORKER par l'URL obtenue à l'étape précédente
-curl https://SPEEDV3.VOTRE-USERNAME.workers.dev/api/init
+curl https://speedv3-worker.calitek-junior.workers.dev/api/init
 ```
 
 **Réponse attendue :**
@@ -139,7 +139,7 @@ Ouvrez votre navigateur sur `http://localhost:5173`
    - Importez le dépôt `speedv3`
    - **Configurez la variable d'environnement :**
      - Clé : `VITE_API_URL`
-     - Valeur : `https://SPEEDV3.VOTRE-USERNAME.workers.dev`
+     - Valeur : `https://speedv3-worker.calitek-junior.workers.dev`
      - ✅ Cochez : Production, Preview, Development
    - Cliquez sur "Deploy"
 
@@ -202,7 +202,7 @@ cat wrangler.toml
 ### Base de données non initialisée
 ```bash
 # Réessayez l'initialisation
-curl -X POST https://SPEEDV3.VOTRE-USERNAME.workers.dev/api/init
+curl -X POST https://speedv3-worker.calitek-junior.workers.dev/api/init
 ```
 
 ### Vercel affiche une erreur
@@ -217,7 +217,7 @@ curl -X POST https://SPEEDV3.VOTRE-USERNAME.workers.dev/api/init
 | Service | URL | Statut |
 |---------|-----|--------|
 | GitHub | https://github.com/juniorrrrr345/speedv3.git | ✅ Configuré |
-| Worker Cloudflare | https://SPEEDV3.VOTRE-USERNAME.workers.dev | ⏳ À déployer |
+| Worker Cloudflare | https://speedv3-worker.calitek-junior.workers.dev | ⏳ À déployer |
 | R2 Bucket | https://pub-XXXXXXXXX.r2.dev/ | ⏳ À créer |
 | Site Vercel | https://speedv3.vercel.app | ⏳ À déployer |
 

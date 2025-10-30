@@ -28,7 +28,7 @@ Menu gauche → Websites → thegd33.calitek-junior.workers.dev
 
 ### 3. Désactiver
 
-Trouvez : `thegd33.calitek-junior.workers.dev` ou `*.workers.dev`
+Trouvez : `speedv3-worker.calitek-junior.workers.dev` ou `*.workers.dev`
 
 Cliquez dessus puis :
 - **Désactiver** (bouton toggle)
@@ -40,7 +40,7 @@ Cliquez dessus puis :
 
 Ouvrez dans votre navigateur :
 ```
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 ### ❌ Avant (BLOQUÉ)
@@ -85,7 +85,7 @@ Cela veut dire que Cloudflare Access est toujours actif.
 Testez dans votre terminal (ou navigateur) :
 
 ```bash
-curl -I https://thegd33.calitek-junior.workers.dev/api/settings
+curl -I https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 ### Si vous voyez `302 Found` ou `Location: ...cloudflareaccess...`

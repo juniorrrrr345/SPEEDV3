@@ -36,7 +36,8 @@ const AdminOrderSettings = () => {
 
     try {
       // Sauvegarder directement via l'API
-      const response = await fetch('https://thegd33.calitek-junior.workers.dev/api/settings', {
+      const API_URL = import.meta.env.VITE_API_URL || 'https://speedv3-worker.calitek-junior.workers.dev'
+      const response = await fetch(`${API_URL}/api/settings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

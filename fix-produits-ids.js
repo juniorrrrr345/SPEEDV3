@@ -2,7 +2,7 @@
  * Script pour corriger les IDs des catégories et farms sur tous les produits
  */
 
-const API_URL = 'https://thegd33.calitek-junior.workers.dev';
+const API_URL = 'https://speedv3-worker.calitek-junior.workers.dev';
 
 // Mapping des noms vers les IDs
 const categoryMapping = {

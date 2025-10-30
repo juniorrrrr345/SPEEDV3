@@ -20,7 +20,7 @@ Votre site Vercel reçoit du HTML au lieu de JSON → erreurs.
 Menu gauche : Zero Trust → Access → Applications
 ```
 
-Trouvez : `thegd33.calitek-junior.workers.dev`
+Trouvez : `speedv3-worker.calitek-junior.workers.dev`
 
 Cliquez dessus et **DÉSACTIVEZ** ou **SUPPRIMEZ**
 
@@ -28,7 +28,7 @@ Cliquez dessus et **DÉSACTIVEZ** ou **SUPPRIMEZ**
 
 Ouvrez dans votre navigateur :
 ```
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 **Vous devez voir du JSON, pas une page de connexion !**

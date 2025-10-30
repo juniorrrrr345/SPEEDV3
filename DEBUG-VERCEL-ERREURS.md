@@ -18,7 +18,7 @@ Votre site Vercel reçoit toujours du HTML au lieu de JSON.
 Ouvrez dans votre navigateur (sur votre PC, pas sur Vercel) :
 
 ```
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 **Question importante** : Que voyez-vous ?
@@ -63,7 +63,7 @@ Cloudflare Access s'est réactivé. Il faut le **redésactiver** :
 
 1. https://dash.cloudflare.com
 2. Zero Trust → Access → Applications
-3. Trouvez et désactivez la protection pour `thegd33.calitek-junior.workers.dev`
+3. Trouvez et désactivez la protection pour `speedv3-worker.calitek-junior.workers.dev`
 
 ---
 
@@ -76,12 +76,12 @@ Sur Vercel Dashboard :
 2. **Vérifiez qu'il y a** :
    ```
    Name: VITE_API_URL
-   Value: https://thegd33.calitek-junior.workers.dev
+   Value: https://speedv3-worker.calitek-junior.workers.dev
    ```
 
 3. **Si elle n'existe pas, AJOUTEZ-LA** :
    - Name : `VITE_API_URL`
-   - Value : `https://thegd33.calitek-junior.workers.dev`
+   - Value : `https://speedv3-worker.calitek-junior.workers.dev`
    - Environments : **Production, Preview, Development** (tous cochés)
 
 4. **Cliquez sur "Save"**
@@ -115,7 +115,7 @@ Pour savoir exactement quelle URL Vercel utilise :
 
 ## 📋 CHECKLIST COMPLÈTE
 
-1. [ ] Tester l'API directement : https://thegd33.calitek-junior.workers.dev/api/settings
+1. [ ] Tester l'API directement : https://speedv3-worker.calitek-junior.workers.dev/api/settings
 2. [ ] L'API renvoie du JSON (pas une page de login)
 3. [ ] Vérifier les variables d'environnement sur Vercel
 4. [ ] Ajouter `VITE_API_URL` si manquante
@@ -130,7 +130,7 @@ Pour savoir exactement quelle URL Vercel utilise :
 
 **1. Testez d'abord l'API** :
 ```
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 **Dites-moi ce que vous voyez !**

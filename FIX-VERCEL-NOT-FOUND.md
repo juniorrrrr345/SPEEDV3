@@ -6,7 +6,7 @@ Toutes vos erreurs disent : `"Not Found" is not valid JSON`
 
 **Cause** : Vercel n'a **PAS** la variable d'environnement `VITE_API_URL` configurée.
 
-L'application essaie d'appeler `/api/settings` en relatif au lieu de `https://thegd33.calitek-junior.workers.dev/api/settings`.
+L'application essaie d'appeler `/api/settings` en relatif au lieu de `https://speedv3-worker.calitek-junior.workers.dev/api/settings`.
 
 ---
 
@@ -27,7 +27,7 @@ L'application essaie d'appeler `/api/settings` en relatif au lieu de `https://th
 6. **Remplissez** :
    ```
    Name: VITE_API_URL
-   Value: https://thegd33.calitek-junior.workers.dev
+   Value: https://speedv3-worker.calitek-junior.workers.dev
    ```
 
 7. **IMPORTANT** : Cochez **TOUTES** les cases :
@@ -95,7 +95,7 @@ Vous DEVRIEZ voir :
 - [ ] Projet sélectionné
 - [ ] Settings → Environment Variables
 - [ ] Variable `VITE_API_URL` ajoutée
-- [ ] Valeur : `https://thegd33.calitek-junior.workers.dev`
+- [ ] Valeur : `https://speedv3-worker.calitek-junior.workers.dev`
 - [ ] TOUTES les environnements cochés
 - [ ] Saved
 - [ ] Deployments → Redeploy (sans cache)
@@ -126,7 +126,7 @@ Pour vérifier que la variable est bien prise en compte :
 
 **Vous devriez voir** :
 ```
-https://thegd33.calitek-junior.workers.dev
+https://speedv3-worker.calitek-junior.workers.dev
 ```
 
 **Si vous voyez** `undefined` → La variable n'est pas configurée.
