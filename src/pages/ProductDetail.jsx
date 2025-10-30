@@ -171,7 +171,17 @@ const ProductDetail = () => {
                           autoPlay
                           loop
                           muted
-                          onError={(e) => console.error('Erreur vidéo détail:', currentMedia, e)}
+                          onError={(e) => {
+                            console.error('Erreur vidéo détail:', currentMedia, e)
+                            e.target.style.display = 'none'
+                            const parent = e.target.parentElement
+                            if (parent && !parent.querySelector('.error-message')) {
+                              const errorDiv = document.createElement('div')
+                              errorDiv.className = 'error-message w-full h-full flex items-center justify-center text-red-400 text-sm'
+                              errorDiv.textContent = '❌ Vidéo non disponible'
+                              parent.appendChild(errorDiv)
+                            }
+                          }}
                           onLoadStart={() => console.log('Chargement vidéo détail:', currentMedia)}
                         />
                       ) : (
@@ -179,7 +189,17 @@ const ProductDetail = () => {
                           src={currentMedia}
                           alt={product.name}
                           className="w-full h-full object-cover"
-                          onError={(e) => console.error('Erreur image détail:', currentMedia, e)}
+                          onError={(e) => {
+                            console.error('Erreur image détail:', currentMedia, e)
+                            e.target.style.display = 'none'
+                            const parent = e.target.parentElement
+                            if (parent && !parent.querySelector('.error-message')) {
+                              const errorDiv = document.createElement('div')
+                              errorDiv.className = 'error-message w-full h-full flex items-center justify-center text-red-400 text-sm'
+                              errorDiv.textContent = '❌ Image non disponible'
+                              parent.appendChild(errorDiv)
+                            }
+                          }}
                           onLoad={() => console.log('Image détail chargée:', currentMedia)}
                         />
                       )

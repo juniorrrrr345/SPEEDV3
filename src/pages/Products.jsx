@@ -306,7 +306,10 @@ const ProductCard = ({ product, index, categories, farms }) => {
               loop
               autoPlay
               playsInline
-              onError={(e) => console.error('Erreur vidéo:', displayImage, e)}
+              onError={(e) => {
+                console.error('Erreur vidéo:', displayImage, e)
+                e.target.style.display = 'none'
+              }}
               onLoadStart={() => console.log('Chargement vidéo:', displayImage)}
             />
           ) : (
@@ -314,7 +317,10 @@ const ProductCard = ({ product, index, categories, farms }) => {
               src={displayImage}
               alt={product.name}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              onError={(e) => console.error('Erreur image:', displayImage, e)}
+              onError={(e) => {
+                console.error('Erreur image:', displayImage, e)
+                e.target.style.display = 'none'
+              }}
               onLoad={() => console.log('Image chargée:', displayImage)}
             />
           )
