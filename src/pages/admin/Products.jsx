@@ -141,12 +141,20 @@ const AdminProducts = () => {
                         src={product.video || product.photo || product.image}
                         className="w-full h-full object-cover"
                         muted
+                        onError={(e) => {
+                          console.error('Erreur vidéo admin:', product.video || product.photo || product.image)
+                          e.target.style.display = 'none'
+                        }}
                       />
                     ) : (
                       <img
                         src={product.photo || product.video || product.image}
                         alt={product.name}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          console.error('Erreur image admin:', product.photo || product.video || product.image)
+                          e.target.style.display = 'none'
+                        }}
                       />
                     )
                   ) : (
@@ -214,12 +222,20 @@ const AdminProducts = () => {
                             src={product.video || product.photo || product.image}
                             className="w-full h-full object-cover relative z-10"
                             muted
+                            onError={(e) => {
+                              console.error('Erreur vidéo admin:', product.video || product.photo || product.image)
+                              e.target.style.display = 'none'
+                            }}
                           />
                         ) : (
                           <img
                             src={product.photo || product.video || product.image}
                             alt={product.name}
                             className="w-full h-full object-cover relative z-10"
+                            onError={(e) => {
+                              console.error('Erreur image admin:', product.photo || product.video || product.image)
+                              e.target.style.display = 'none'
+                            }}
                           />
                         )
                       ) : (
