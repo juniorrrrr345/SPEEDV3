@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Header from '../components/Header'
+import { getR2Url } from '../utils/cloudflare'
 
 const ProductDetail = () => {
   const { id } = useParams()
@@ -50,18 +51,32 @@ const ProductDetail = () => {
   }
 
   // Construire le tableau de médias - PHOTO EN PREMIER, puis vidéo
+  // Normaliser toutes les URLs avec getR2Url pour s'assurer qu'elles sont complètes
   const allMedias = []
   
   // Ajouter tous les médias disponibles - PHOTO D'ABORD
-  if (product.photo && product.photo.trim()) allMedias.push(product.photo)
-  if (product.image && product.image.trim()) allMedias.push(product.image)
-  if (product.video && product.video.trim()) allMedias.push(product.video)
+  // Normaliser chaque URL avec getR2Url
+  if (product.photo && product.photo.trim()) {
+    const normalizedUrl = getR2Url(product.photo)
+    if (normalizedUrl) allMedias.push(normalizedUrl)
+  }
+  if (product.image && product.image.trim()) {
+    const normalizedUrl = getR2Url(product.image)
+    if (normalizedUrl) allMedias.push(normalizedUrl)
+  }
+  if (product.video && product.video.trim()) {
+    const normalizedUrl = getR2Url(product.video)
+    if (normalizedUrl) allMedias.push(normalizedUrl)
+  }
   
   // Vérifier aussi dans medias si c'est un tableau
   if (product.medias && Array.isArray(product.medias)) {
     product.medias.forEach(media => {
-      if (media && media.trim() && !allMedias.includes(media)) {
-        allMedias.push(media)
+      if (media && media.trim()) {
+        const normalizedUrl = getR2Url(media)
+        if (normalizedUrl && !allMedias.includes(normalizedUrl)) {
+          allMedias.push(normalizedUrl)
+        }
       }
     })
   }
