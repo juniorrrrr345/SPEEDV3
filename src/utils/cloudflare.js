@@ -3,7 +3,7 @@
  */
 
 const API_URL = import.meta.env.VITE_API_URL || 'https://speedv3-worker.calitek-junior.workers.dev'
-export const R2_PUBLIC_URL = 'https://pub-53af7ff6cf154e87af25e68525a4bf74.r2.dev'
+export const R2_PUBLIC_URL = 'https://pub-d57130a1bf584539ae011440013f40ad.r2.dev'
 
 export const uploadToR2 = async (file) => {
   try {
