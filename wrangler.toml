@@ -1,4 +1,4 @@
-name = "SPEEDV3"
+name = "speedv3-worker"
 main = "worker/index.js"
 compatibility_date = "2024-01-01"
 
@@ -6,9 +6,9 @@ compatibility_date = "2024-01-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "SPEEDV3"
-database_id = "VOTRE-DATABASE-ID-ICI"
+database_id = "c8f13f25-d1cd-4ff2-8c05-f3fba5a11983"
 
 # Cloudflare R2 Storage
 [[r2_buckets]]
 binding = "R2"
-bucket_name = "SPEEDV3"
+bucket_name = "speedv3-media"
