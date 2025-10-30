@@ -11,7 +11,7 @@ Vous n'avez **pas configuré Zero Trust**, donc le blocage ne vient PAS de vous 
 Il y a 3 possibilités :
 
 ### Possibilité 1 : Le worker est sur un AUTRE compte Cloudflare
-Le domaine `thegd33.calitek-junior.workers.dev` appartient peut-être au compte "calitek-junior", pas à votre compte personnel.
+Le domaine `speedv3-worker.calitek-junior.workers.dev` appartient peut-être au compte "calitek-junior", pas à votre compte personnel.
 
 **Solution** : Contactez l'administrateur du compte "calitek-junior" pour désactiver la protection.
 
@@ -155,7 +155,7 @@ Ouvrez : `http://localhost:5173/admin/login`
 ## 📋 RÉSUMÉ
 
 **Problème actuel** :
-- Le worker `thegd33.calitek-junior.workers.dev` est sur un autre compte
+- Le worker `speedv3-worker.calitek-junior.workers.dev` est sur un autre compte
 - Vous n'avez pas accès à ce compte pour désactiver la protection
 
 **Solutions** :

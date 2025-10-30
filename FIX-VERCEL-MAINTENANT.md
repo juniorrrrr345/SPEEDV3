@@ -19,13 +19,13 @@ API renvoie HTML au lieu de JSON
 
 ### 2️⃣ Zero Trust → Access → Applications
 
-### 3️⃣ Trouvez : `thegd33.calitek-junior.workers.dev`
+### 3️⃣ Trouvez : `speedv3-worker.calitek-junior.workers.dev`
 
 ### 4️⃣ DÉSACTIVEZ la protection
 
 ### 5️⃣ Testez :
 ```
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 **Doit afficher du JSON, PAS une page de login**

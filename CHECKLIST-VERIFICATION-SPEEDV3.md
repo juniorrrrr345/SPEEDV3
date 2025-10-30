@@ -212,7 +212,7 @@ Utilisez cette checklist pour vous assurer que votre instance SPEEDV3 est correc
 ### URLs à Documenter
 ```
 Dépôt GitHub : https://github.com/juniorrrrr345/speedv3
-Worker API : https://SPEEDV3.[username].workers.dev
+Worker API : https://speedv3-worker.calitek-junior.workers.dev
 Bucket R2 : https://pub-[id].r2.dev/
 Site Web : https://speedv3.vercel.app
 Admin : https://speedv3.vercel.app/admin/login
@@ -258,13 +258,13 @@ Si vous rencontrez des problèmes :
 3. **Testez les composants individuellement :**
    ```bash
    # Test du worker
-   curl https://SPEEDV3.[username].workers.dev/api/health
+   curl https://speedv3-worker.calitek-junior.workers.dev/api/health
    
    # Test de l'upload R2
    curl https://pub-[id].r2.dev/test.jpg
    
    # Test de l'API
-   curl https://SPEEDV3.[username].workers.dev/api/products
+   curl https://speedv3-worker.calitek-junior.workers.dev/api/products
    ```
 
 4. **Redéployez si nécessaire :**

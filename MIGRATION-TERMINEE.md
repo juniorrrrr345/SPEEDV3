@@ -23,7 +23,7 @@ Vos données sont maintenant disponibles sur l'API :
 
 ### Produits (34)
 ```
-https://thegd33.calitek-junior.workers.dev/api/products
+https://speedv3-worker.calitek-junior.workers.dev/api/products
 ```
 
 **Quelques exemples** :
@@ -37,7 +37,7 @@ https://thegd33.calitek-junior.workers.dev/api/products
 
 ### Catégories (8)
 ```
-https://thegd33.calitek-junior.workers.dev/api/categories
+https://speedv3-worker.calitek-junior.workers.dev/api/categories
 ```
 
 - VAPE THC 💨
@@ -51,7 +51,7 @@ https://thegd33.calitek-junior.workers.dev/api/categories
 
 ### Farms (6)
 ```
-https://thegd33.calitek-junior.workers.dev/api/farms
+https://speedv3-worker.calitek-junior.workers.dev/api/farms
 ```
 
 - JUNGLE BOYS 🇺🇸

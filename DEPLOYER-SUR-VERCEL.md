@@ -132,7 +132,7 @@ Sur **Vercel Dashboard** :
 1. Projet **THEGD33V3** → **Settings** → **Environment Variables**
 2. Ajoutez (si pas déjà fait) :
    ```
-   VITE_API_URL = https://thegd33.calitek-junior.workers.dev
+   VITE_API_URL = https://speedv3-worker.calitek-junior.workers.dev
    ```
 3. **Redéployez** après avoir ajouté la variable
 

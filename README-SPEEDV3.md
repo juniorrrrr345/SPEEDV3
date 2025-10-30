@@ -63,7 +63,7 @@ Cette instance est une copie indépendante de THEGD33V3, configurée pour foncti
 
 | Service | URL | Statut |
 |---------|-----|--------|
-| **Worker API** | `https://SPEEDV3.[username].workers.dev` | ⏳ À déployer |
+| **Worker API** | `https://speedv3-worker.calitek-junior.workers.dev` | ⏳ À déployer |
 | **Site Web** | `https://speedv3.vercel.app` | ⏳ À déployer |
 | **Admin** | `https://speedv3.vercel.app/admin/login` | ⏳ À déployer |
 | **Bucket R2** | `https://pub-[id].r2.dev/` | ⏳ À créer |
@@ -107,7 +107,7 @@ npx wrangler secret put DEFAULT_ADMIN_PASSWORD
 
 ```bash
 # Initialiser les tables (remplacez par votre URL worker)
-curl https://SPEEDV3.[username].workers.dev/api/init
+curl https://speedv3-worker.calitek-junior.workers.dev/api/init
 ```
 
 ## 📋 Checklist de Configuration

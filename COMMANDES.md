@@ -62,7 +62,7 @@ npm run deploy:worker
 
 # 3. Initialiser la DB en production
 # Ouvrir dans le navigateur :
-# https://thegd33.calitek-junior.workers.dev/api/init
+# https://speedv3-worker.calitek-junior.workers.dev/api/init
 
 # 4. Build le frontend
 npm run build

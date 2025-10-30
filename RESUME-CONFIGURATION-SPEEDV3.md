@@ -34,7 +34,7 @@
 
 - ✅ `.env.local` avec template API URL :
   ```env
-  VITE_API_URL=https://SPEEDV3.VOTRE-USERNAME.workers.dev
+  VITE_API_URL=https://speedv3-worker.calitek-junior.workers.dev
   ```
 
 ### 5. 🔒 Sécurité
@@ -85,7 +85,7 @@ npx wrangler deploy
 
 ### 🔴 4. Initialisation de la Base
 ```bash
-curl https://SPEEDV3.VOTRE-USERNAME.workers.dev/api/init
+curl https://speedv3-worker.calitek-junior.workers.dev/api/init
 ```
 
 ### 🔴 5. Push sur GitHub
@@ -155,7 +155,7 @@ Notez ces URLs lors du déploiement :
 | Service | URL Template | À remplir |
 |---------|--------------|-----------|
 | **GitHub** | `https://github.com/juniorrrrr345/speedv3` | ✅ Configuré |
-| **Worker** | `https://SPEEDV3.[username].workers.dev` | ⏳ Après déploiement |
+| **Worker** | `https://speedv3-worker.calitek-junior.workers.dev` | ⏳ Après déploiement |
 | **R2 Bucket** | `https://pub-[id].r2.dev/` | ⏳ Après création |
 | **Site Vercel** | `https://speedv3.vercel.app` | ⏳ Après déploiement |
 | **Admin** | `https://speedv3.vercel.app/admin/login` | ⏳ Après déploiement |
@@ -193,7 +193,7 @@ Mot de passe : SpeedV3Admin123
 │  Backend (Cloudflare Worker)                            │
 │  ├── API REST                                           │
 │  ├── Authentification                                    │
-│  └── URL: https://SPEEDV3.[username].workers.dev       │
+│  └── URL: https://speedv3-worker.calitek-junior.workers.dev       │
 │                                                          │
 │  Base de Données (Cloudflare D1)                        │
 │  ├── SQLite                                             │

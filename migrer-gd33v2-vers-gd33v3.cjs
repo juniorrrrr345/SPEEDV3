@@ -4,7 +4,7 @@ const https = require('https')
 const { execSync } = require('child_process')
 const fs = require('fs')
 
-const API_URL = 'https://thegd33.calitek-junior.workers.dev'
+const API_URL = 'https://speedv3-worker.calitek-junior.workers.dev'
 const OLD_DB_NAME = 'GD33V2'
 const NEW_DB_NAME = 'gd33v3'
 

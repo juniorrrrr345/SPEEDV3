@@ -18,7 +18,7 @@ Voici ce que vous devez tester pour vérifier que tout fonctionne :
 
 **Résultat attendu** :
 - Message "Paramètres sauvegardés avec succès !"
-- Vérifier sur : https://thegd33.calitek-junior.workers.dev/api/settings
+- Vérifier sur : https://speedv3-worker.calitek-junior.workers.dev/api/settings
 
 ### ❌ Ce qui NE MARCHE PAS (pour l'instant) :
 
@@ -41,7 +41,7 @@ Voici ce que vous devez tester pour vérifier que tout fonctionne :
 
 ### Vérification :
 
-**API** : https://thegd33.calitek-junior.workers.dev/api/products
+**API** : https://speedv3-worker.calitek-junior.workers.dev/api/products
 
 Vous devriez voir votre produit.
 
@@ -65,7 +65,7 @@ Vous devriez voir votre produit.
 
 ### Vérification :
 
-**API** : https://thegd33.calitek-junior.workers.dev/api/categories
+**API** : https://speedv3-worker.calitek-junior.workers.dev/api/categories
 
 ---
 
@@ -81,7 +81,7 @@ Vous devriez voir votre produit.
 
 ### Vérification :
 
-**API** : https://thegd33.calitek-junior.workers.dev/api/farms
+**API** : https://speedv3-worker.calitek-junior.workers.dev/api/farms
 
 ---
 
@@ -98,7 +98,7 @@ Vous devriez voir votre produit.
 
 ### Vérification :
 
-**API** : https://thegd33.calitek-junior.workers.dev/api/socials
+**API** : https://speedv3-worker.calitek-junior.workers.dev/api/socials
 
 ---
 

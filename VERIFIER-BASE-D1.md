@@ -24,7 +24,7 @@ Maintenant testons que les données s'enregistrent bien.
 
 **Ouvrez dans votre navigateur** :
 ```
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 **Vous devriez voir** vos modifications :
@@ -111,7 +111,7 @@ npx wrangler d1 execute gd33v3 --command "SELECT * FROM products"
 
 **Ouvrez** :
 ```
-https://thegd33.calitek-junior.workers.dev/api/products
+https://speedv3-worker.calitek-junior.workers.dev/api/products
 ```
 
 **Vous devriez voir** votre produit dans la liste JSON.
@@ -134,7 +134,7 @@ https://thegd33.calitek-junior.workers.dev/api/products
 
 **Ouvrez** :
 ```
-https://thegd33.calitek-junior.workers.dev/api/categories
+https://speedv3-worker.calitek-junior.workers.dev/api/categories
 ```
 
 **Vous devriez voir** votre catégorie.

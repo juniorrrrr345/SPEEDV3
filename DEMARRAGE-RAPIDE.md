@@ -76,7 +76,7 @@ npm run deploy:worker
 
 3. Initialiser la base de données en production :
 ```
-https://thegd33.calitek-junior.workers.dev/api/init
+https://speedv3-worker.calitek-junior.workers.dev/api/init
 ```
 
 4. Le panel admin fonctionnera automatiquement avec l'URL de production

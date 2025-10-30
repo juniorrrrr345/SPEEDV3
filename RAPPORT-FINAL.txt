@@ -147,7 +147,7 @@
 🔗 URLS À COMPLÉTER PENDANT LE DÉPLOIEMENT
 
   GitHub    : https://github.com/juniorrrrr345/speedv3 ✅
-  Worker    : https://SPEEDV3.[username].workers.dev ⏳
+  Worker    : https://speedv3-worker.calitek-junior.workers.dev ⏳
   R2 Bucket : https://pub-[id].r2.dev/ ⏳
   Vercel    : https://speedv3.vercel.app ⏳
   Admin     : https://speedv3.vercel.app/admin/login ⏳

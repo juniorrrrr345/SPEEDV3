@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-const API_URL = 'https://thegd33.calitek-junior.workers.dev'
+const API_URL = import.meta.env.VITE_API_URL || 'https://speedv3-worker.calitek-junior.workers.dev'
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([])

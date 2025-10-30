@@ -2,7 +2,7 @@
  * Script d'Import des Catégories et Farms vers gd33v3
  */
 
-const API_URL = 'https://thegd33.calitek-junior.workers.dev';
+const API_URL = 'https://speedv3-worker.calitek-junior.workers.dev';
 
 // Données des catégories
 const categories = [

@@ -25,7 +25,7 @@ Quand votre site Vercel essaie d'accéder à l'API, Cloudflare renvoie une page 
 
 Cherchez dans la liste :
 ```
-thegd33.calitek-junior.workers.dev
+speedv3-worker.calitek-junior.workers.dev
 ```
 
 ### Étape 4 : Désactiver la Protection
@@ -44,7 +44,7 @@ thegd33.calitek-junior.workers.dev
 
 Testez dans votre navigateur :
 ```
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 **Avant** : Redirection vers une page de login  
@@ -141,7 +141,7 @@ Mais pour une boutique e-commerce, l'API devrait être publique (seule l'admin n
 - [ ] Connexion à Cloudflare Dashboard
 - [ ] Accès à Zero Trust → Access → Applications
 - [ ] Désactivation de la protection pour le worker
-- [ ] Test : `https://thegd33.calitek-junior.workers.dev/api/settings` renvoie du JSON
+- [ ] Test : `https://speedv3-worker.calitek-junior.workers.dev/api/settings` renvoie du JSON
 - [ ] Commit et push du nouveau `vercel.json`
 - [ ] Redéploiement Vercel
 - [ ] Test du panel admin sur Vercel

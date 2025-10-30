@@ -46,12 +46,12 @@ Le panel admin renvoie des erreurs JSON car le worker Cloudflare n'est pas acces
    ```
 
 3. **Initialiser la base de données en production** :
-   - Ouvrez votre navigateur à `https://thegd33.calitek-junior.workers.dev/api/init`
+   - Ouvrez votre navigateur à `https://speedv3-worker.calitek-junior.workers.dev/api/init`
 
 4. **Mettre à jour l'URL de l'API** :
    - Créer un fichier `.env.production.local` :
      ```
-     VITE_API_URL=https://thegd33.calitek-junior.workers.dev
+     VITE_API_URL=https://speedv3-worker.calitek-junior.workers.dev
      ```
 
 5. **Rebuild et redéployer le frontend** :
@@ -68,7 +68,7 @@ VITE_API_URL=http://localhost:8787
 
 ### Production
 ```
-VITE_API_URL=https://thegd33.calitek-junior.workers.dev
+VITE_API_URL=https://speedv3-worker.calitek-junior.workers.dev
 ```
 
 ## Fichiers Créés

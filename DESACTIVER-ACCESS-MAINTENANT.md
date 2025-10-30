@@ -2,7 +2,7 @@
 
 ## 🎯 Vous avez le bon compte !
 
-Votre worker `thegd33.calitek-junior.workers.dev` est bien sur votre compte.
+Votre worker `speedv3-worker.calitek-junior.workers.dev` est bien sur votre compte.
 
 Il faut juste **désactiver la protection Cloudflare Access**.
 
@@ -23,7 +23,7 @@ Il faut juste **désactiver la protection Cloudflare Access**.
    ```
 
 3. **Cherchez** dans la liste :
-   - `thegd33.calitek-junior.workers.dev`
+   - `speedv3-worker.calitek-junior.workers.dev`
    - ou `*.workers.dev`
    - ou `*.calitek-junior.workers.dev`
 
@@ -116,7 +116,7 @@ Cela permettra l'accès public à tous les endpoints `/api/*` tout en gardant la
 Une fois que vous pensez avoir désactivé Access, testez :
 
 ```
-https://thegd33.calitek-junior.workers.dev/api/settings
+https://speedv3-worker.calitek-junior.workers.dev/api/settings
 ```
 
 **Dans votre navigateur** :
