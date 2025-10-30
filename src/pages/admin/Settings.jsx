@@ -145,7 +145,7 @@ const AdminSettings = () => {
               type="text"
               value={settings.shopName}
               onChange={(e) => setSettings({ ...settings, shopName: e.target.value })}
-              className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors"
               placeholder="AVEC Amour"
             />
           </div>
@@ -183,7 +183,7 @@ const AdminSettings = () => {
               accept="image/*"
               onChange={(e) => handleBackgroundUpload(e.target.files[0])}
               disabled={uploadingBg}
-              className="w-full px-4 py-2 bg-black border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:border-gray-500 file:mr-2 file:py-2 file:px-4 file:rounded file:border-0 file:bg-gray-700 file:text-white file:text-sm file:cursor-pointer"
+              className="w-full px-4 py-2 bg-slate-800/50 border border-gray-700 rounded-lg text-white text-sm focus:outline-none focus:border-gray-500 file:mr-2 file:py-2 file:px-4 file:rounded file:border-0 file:bg-gray-700 file:text-white file:text-sm file:cursor-pointer"
             />
             {uploadingBg && <p className="text-gray-400 text-sm mt-2">Upload en cours...</p>}
             <p className="text-gray-400 text-xs mt-2">Cette image sera utilisée comme fond pour toutes les pages (boutique et admin)</p>
@@ -201,7 +201,7 @@ const AdminSettings = () => {
                   type="text"
                   value={settings.heroTitle}
                   onChange={(e) => setSettings({ ...settings, heroTitle: e.target.value })}
-                  className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors"
+                  className="w-full px-4 py-3 bg-slate-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors"
                   placeholder="OG LEGACY"
                 />
               </div>
@@ -212,7 +212,7 @@ const AdminSettings = () => {
                   value={settings.heroSubtitle}
                   onChange={(e) => setSettings({ ...settings, heroSubtitle: e.target.value })}
                   rows="2"
-                  className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-slate-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors resize-none"
                   placeholder="Votre meilleur café à Paris"
                 />
               </div>
@@ -258,7 +258,7 @@ const AdminSettings = () => {
                           type="text"
                           value={section.icon}
                           onChange={(e) => updateSection(index, 'icon', e.target.value)}
-                          className="w-16 h-16 px-3 py-2 bg-black border border-gray-700 rounded text-white text-center text-2xl focus:outline-none focus:border-gray-500"
+                          className="w-16 h-16 px-3 py-2 bg-slate-800/50 border border-gray-700 rounded text-white text-center text-2xl focus:outline-none focus:border-gray-500"
                           placeholder="📦"
                           maxLength="2"
                         />
@@ -281,14 +281,14 @@ const AdminSettings = () => {
                         type="text"
                         value={section.title}
                         onChange={(e) => updateSection(index, 'title', e.target.value)}
-                        className="w-full px-3 py-2 bg-black border border-gray-700 rounded text-white focus:outline-none focus:border-gray-500"
+                        className="w-full px-3 py-2 bg-slate-800/50 border border-gray-700 rounded text-white focus:outline-none focus:border-gray-500"
                         placeholder="Titre de la section"
                       />
                       <textarea
                         value={section.content}
                         onChange={(e) => updateSection(index, 'content', e.target.value)}
                         rows="2"
-                        className="w-full px-3 py-2 bg-black border border-gray-700 rounded text-white focus:outline-none focus:border-gray-500 resize-none text-sm"
+                        className="w-full px-3 py-2 bg-slate-800/50 border border-gray-700 rounded text-white focus:outline-none focus:border-gray-500 resize-none text-sm"
                         placeholder="Contenu de la section"
                       />
                     </div>

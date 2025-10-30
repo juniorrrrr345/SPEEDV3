@@ -112,7 +112,7 @@ const Maintenance = () => {
               value={maintenanceMessage}
               onChange={(e) => setMaintenanceMessage(e.target.value)}
               rows={6}
-              className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white focus:outline-none focus:border-white resize-none font-mono"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-white resize-none font-mono"
               placeholder="🔧 Site en maintenance..."
             />
             <p className="text-gray-500 text-sm mt-2">💡 Astuce : Utilisez \n pour les sauts de ligne</p>

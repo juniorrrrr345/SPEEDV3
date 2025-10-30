@@ -168,7 +168,7 @@ const FarmModal = ({ farm, onClose, onSuccess }) => {
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
               placeholder="Ex: Farm du Nord"
-              className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors"
             />
           </div>
 

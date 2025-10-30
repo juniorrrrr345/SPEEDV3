@@ -90,7 +90,7 @@ const AdminOrderSettings = () => {
               type="url"
               value={settings.orderLink}
               onChange={(e) => setSettings({ ...settings, orderLink: e.target.value })}
-              className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors"
               placeholder="https://wa.me/123456789"
             />
             <p className="text-gray-500 text-xs mt-2">
@@ -111,7 +111,7 @@ const AdminOrderSettings = () => {
               type="text"
               value={settings.orderButtonText}
               onChange={(e) => setSettings({ ...settings, orderButtonText: e.target.value })}
-              className="w-full px-4 py-3 bg-black border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors"
+              className="w-full px-4 py-3 bg-slate-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500 transition-colors"
               placeholder="Commander"
               maxLength="30"
             />
