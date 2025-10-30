@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Header from '../components/Header'
 
 const Products = () => {
@@ -14,7 +14,6 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedFarm, setSelectedFarm] = useState('')
   const [showFilters, setShowFilters] = useState(false)
-  const [previewProduct, setPreviewProduct] = useState(null)
 
   useEffect(() => {
     fetchData()
@@ -230,30 +229,17 @@ const Products = () => {
                   index={index}
                   categories={categories}
                   farms={farms}
-                  onPreview={() => setPreviewProduct(product)}
                 />
               ))}
             </div>
           )}
         </div>
       </div>
-
-      {/* Modal Aperçu */}
-      <AnimatePresence>
-        {previewProduct && (
-          <ProductPreview 
-            product={previewProduct} 
-            categories={categories}
-            farms={farms}
-            onClose={() => setPreviewProduct(null)} 
-          />
-        )}
-      </AnimatePresence>
     </div>
   )
 }
 
-const ProductCard = ({ product, index, onPreview, categories, farms }) => {
+const ProductCard = ({ product, index, categories, farms }) => {
   // Trouver les noms de catégorie et farm (convertir en string pour la comparaison)
   const categoryName = categories.find(c => String(c.id) === String(product.category))?.name || product.category
   const farmName = farms.find(f => String(f.id) === String(product.farm))?.name || product.farm
@@ -301,7 +287,8 @@ const ProductCard = ({ product, index, onPreview, categories, farms }) => {
       className="neon-border rounded-2xl overflow-hidden bg-slate-900/50 backdrop-blur-sm group cursor-pointer"
     >
       {/* Image ou Vidéo */}
-      <div className="relative h-48 md:h-64 overflow-hidden bg-slate-800" onClick={onPreview}>
+      <Link to={`/products/${product.id}`}>
+        <div className="relative h-48 md:h-64 overflow-hidden bg-slate-800">
         {displayImage ? (
           isCloudflareStreamIframe(displayImage) ? (
             <iframe
@@ -336,10 +323,8 @@ const ProductCard = ({ product, index, onPreview, categories, farms }) => {
             🎁
           </div>
         )}
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <span className="text-theme-heading text-lg font-bold">👁️ Aperçu rapide</span>
         </div>
-      </div>
+      </Link>
 
       {/* Info */}
       <div className="p-4 md:p-6">
@@ -377,143 +362,6 @@ const ProductCard = ({ product, index, onPreview, categories, farms }) => {
           </Link>
         </div>
       </div>
-    </motion.div>
-  )
-}
-
-const ProductPreview = ({ product, onClose, categories, farms }) => {
-  const [selectedVariant, setSelectedVariant] = useState(0)
-  const variants = product.variants || [{ name: 'Standard', price: product.price }]
-  
-  // Trouver les noms de catégorie et farm (convertir en string pour la comparaison)
-  const categoryName = categories?.find(c => String(c.id) === String(product.category))?.name || product.category
-  const farmName = farms?.find(f => String(f.id) === String(product.farm))?.name || product.farm
-  
-  // Afficher la photo en priorité dans l'aperçu
-  const displayMedia = product.photo || product.image || product.video
-  
-  // Fonction pour détecter si c'est une vidéo
-  const isVideo = (url) => {
-    if (!url) return false
-    const videoExtensions = ['.mp4', '.webm', '.mov', '.MOV', '.avi', '.mkv']
-    return videoExtensions.some(ext => url.toLowerCase().includes(ext)) || url.startsWith('data:video')
-  }
-  
-  // Fonction pour détecter si c'est un iframe Cloudflare Stream
-  const isCloudflareStreamIframe = (url) => {
-    if (!url) return false
-    return url.includes('cloudflarestream.com') && url.includes('iframe')
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        className="neon-border rounded-2xl p-0 bg-slate-900 max-w-4xl w-full max-h-[95vh] overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 max-h-[95vh]">
-          {/* Média */}
-          <div className="relative h-[250px] sm:h-[300px] md:h-full bg-slate-800">
-            {displayMedia ? (
-              isCloudflareStreamIframe(displayMedia) ? (
-                <iframe
-                  src={displayMedia}
-                  className="w-full h-full"
-                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-                  allowFullScreen
-                  style={{ border: 'none' }}
-                />
-              ) : isVideo(displayMedia) ? (
-                <video
-                  src={displayMedia}
-                  className="w-full h-full object-cover"
-                  controls
-                  autoPlay
-                  loop
-                  muted
-                  onError={(e) => console.error('Erreur vidéo preview:', displayMedia, e)}
-                  onLoadStart={() => console.log('Chargement vidéo preview:', displayMedia)}
-                />
-              ) : (
-                <img
-                  src={displayMedia}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => console.error('Erreur image preview:', displayMedia, e)}
-                  onLoad={() => console.log('Image preview chargée:', displayMedia)}
-                />
-              )
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-6xl sm:text-9xl">
-                🎁
-              </div>
-            )}
-          </div>
-
-          {/* Info */}
-          <div className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 overflow-y-auto max-h-[calc(95vh-250px)] sm:max-h-[calc(95vh-300px)] md:max-h-[500px]">
-            <div className="flex items-start justify-between gap-2">
-              <div className="flex-1">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-theme-heading mb-2">{product.name}</h2>
-                <div className="flex flex-wrap gap-2">
-                  {categoryName && (
-                    <span className="inline-block px-2 sm:px-3 py-1 bg-gray-700/30 border border-gray-600/50 rounded-full text-gray-300 text-xs sm:text-sm">
-                      🏷️ {categoryName}
-                    </span>
-                  )}
-                  {farmName && (
-                    <span className="inline-block px-2 sm:px-3 py-1 bg-gray-700/30 border border-gray-600/50 rounded-full text-gray-300 text-xs sm:text-sm">
-                      🌾 {farmName}
-                    </span>
-                  )}
-                </div>
-              </div>
-              <button
-                onClick={onClose}
-                className="text-gray-400 hover:text-white text-xl sm:text-2xl flex-shrink-0"
-              >
-                ✕
-              </button>
-            </div>
-
-            <p className="text-theme leading-relaxed text-sm sm:text-base">{product.description}</p>
-
-            {/* Variantes */}
-            <div className="space-y-2 sm:space-y-3">
-              <h3 className="text-base sm:text-lg font-bold text-theme-heading">💰 Quantité & Prix</h3>
-              {variants.map((variant, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedVariant(index)}
-                  className={`w-full p-2 sm:p-3 rounded-lg border-2 transition-all flex items-center justify-between ${
-                    selectedVariant === index
-                      ? 'border-white bg-white/10 text-white'
-                      : 'border-gray-700/30 bg-slate-800/50 text-gray-300 hover:border-white/50'
-                  }`}
-                >
-                  <span className="font-semibold text-sm sm:text-base">{variant.name}</span>
-                  <span className="text-lg sm:text-xl font-bold text-theme-accent">{variant.price}</span>
-                </button>
-              ))}
-            </div>
-
-            <Link to={`/products/${product.id}`}>
-              <button className="w-full py-3 sm:py-4 bg-gradient-to-r from-white to-gray-200 rounded-lg text-black font-bold text-base sm:text-lg hover:from-gray-200 hover:to-gray-400 transition-all">
-                Voir détails complets
-              </button>
-            </Link>
-          </div>
-        </div>
-      </motion.div>
     </motion.div>
   )
 }
