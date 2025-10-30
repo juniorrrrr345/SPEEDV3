@@ -1,6 +1,6 @@
 // Gestion du stockage avec IndexedDB (beaucoup plus d'espace que localStorage)
 
-const DB_NAME = 'AvecAmourDB'
+const DB_NAME = 'SPEEDV3'
 const DB_VERSION = 1
 
 // Initialiser IndexedDB
