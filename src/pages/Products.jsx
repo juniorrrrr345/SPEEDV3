@@ -163,7 +163,7 @@ const Products = () => {
                       <select
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
-                        className="w-full px-4 py-2 bg-black border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500"
+                        className="w-full px-4 py-2 bg-slate-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500"
                       >
                         <option value="">Toutes les catégories</option>
                         {categories.map((cat) => (
@@ -180,7 +180,7 @@ const Products = () => {
                       <select
                         value={selectedFarm}
                         onChange={(e) => setSelectedFarm(e.target.value)}
-                        className="w-full px-4 py-2 bg-black border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500"
+                        className="w-full px-4 py-2 bg-slate-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-gray-500"
                       >
                         <option value="">Toutes les farms</option>
                         {farms.map((farm) => (
