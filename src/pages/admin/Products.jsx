@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { uploadToR2 } from '../../utils/cloudflare'
+import { uploadToR2, getR2Url } from '../../utils/cloudflare'
 import { getAll, save, remove } from '../../utils/api'
 
 // Import React pour useEffect dans ProductModal
@@ -63,6 +63,13 @@ const AdminProducts = () => {
   const isCloudflareStreamIframe = (url) => {
     if (!url) return false
     return url.includes('cloudflarestream.com') && url.includes('iframe')
+  }
+
+  // Fonction pour obtenir le média normalisé d'un produit
+  const getProductMedia = (product) => {
+    const media = product.photo || product.image || product.video
+    if (!media) return null
+    return getR2Url(media)
   }
 
   // Fonction pour détecter si c'est une vidéo
@@ -131,37 +138,41 @@ const AdminProducts = () => {
             >
               <div className="flex items-start gap-3">
                 <div className="w-20 h-20 rounded-lg overflow-hidden bg-slate-800 flex-shrink-0">
-                  {(product.photo || product.video || product.image) ? (
-                    isCloudflareStreamIframe(product.video || product.photo || product.image) ? (
+                  {(() => {
+                    const mediaUrl = getProductMedia(product)
+                    if (!mediaUrl) return (
+                      <div className="w-full h-full flex items-center justify-center text-2xl">
+                        📦
+                      </div>
+                    )
+                    if (isCloudflareStreamIframe(mediaUrl)) return (
                       <div className="w-full h-full flex items-center justify-center text-2xl bg-slate-900">
                         🎥
                       </div>
-                    ) : isVideo(product.video || product.photo || product.image) ? (
+                    )
+                    if (isVideo(mediaUrl)) return (
                       <video
-                        src={product.video || product.photo || product.image}
+                        src={mediaUrl}
                         className="w-full h-full object-cover"
                         muted
                         onError={(e) => {
-                          console.error('Erreur vidéo admin:', product.video || product.photo || product.image)
-                          e.target.style.display = 'none'
-                        }}
-                      />
-                    ) : (
-                      <img
-                        src={product.photo || product.video || product.image}
-                        alt={product.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          console.error('Erreur image admin:', product.photo || product.video || product.image)
+                          console.error('Erreur vidéo admin:', mediaUrl)
                           e.target.style.display = 'none'
                         }}
                       />
                     )
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-2xl">
-                      📦
-                    </div>
-                  )}
+                    return (
+                      <img
+                        src={mediaUrl}
+                        alt={product.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          console.error('Erreur image admin:', mediaUrl)
+                          e.target.style.display = 'none'
+                        }}
+                      />
+                    )
+                  })()}
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-white font-medium truncate">{product.name}</h3>
@@ -212,37 +223,41 @@ const AdminProducts = () => {
                 >
                   <td className="px-6 py-4">
                     <div className="w-16 h-16 rounded-lg overflow-hidden bg-slate-800">
-                      {(product.photo || product.video || product.image) ? (
-                        isCloudflareStreamIframe(product.video || product.photo || product.image) ? (
+                      {(() => {
+                        const mediaUrl = getProductMedia(product)
+                        if (!mediaUrl) return (
+                          <div className="w-full h-full flex items-center justify-center text-2xl relative z-10">
+                            📦
+                          </div>
+                        )
+                        if (isCloudflareStreamIframe(mediaUrl)) return (
                           <div className="w-full h-full flex items-center justify-center text-2xl bg-slate-900 relative z-10">
                             🎥
                           </div>
-                        ) : isVideo(product.video || product.photo || product.image) ? (
+                        )
+                        if (isVideo(mediaUrl)) return (
                           <video
-                            src={product.video || product.photo || product.image}
+                            src={mediaUrl}
                             className="w-full h-full object-cover relative z-10"
                             muted
                             onError={(e) => {
-                              console.error('Erreur vidéo admin:', product.video || product.photo || product.image)
-                              e.target.style.display = 'none'
-                            }}
-                          />
-                        ) : (
-                          <img
-                            src={product.photo || product.video || product.image}
-                            alt={product.name}
-                            className="w-full h-full object-cover relative z-10"
-                            onError={(e) => {
-                              console.error('Erreur image admin:', product.photo || product.video || product.image)
+                              console.error('Erreur vidéo admin:', mediaUrl)
                               e.target.style.display = 'none'
                             }}
                           />
                         )
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-2xl relative z-10">
-                          📦
-                        </div>
-                      )}
+                        return (
+                          <img
+                            src={mediaUrl}
+                            alt={product.name}
+                            className="w-full h-full object-cover relative z-10"
+                            onError={(e) => {
+                              console.error('Erreur image admin:', mediaUrl)
+                              e.target.style.display = 'none'
+                            }}
+                          />
+                        )
+                      })()}
                     </div>
                   </td>
                   <td className="px-6 py-4">

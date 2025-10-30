@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Header from '../components/Header'
+import { getR2Url } from '../utils/cloudflare'
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -245,22 +246,36 @@ const ProductCard = ({ product, index, categories, farms }) => {
   const farmName = farms.find(f => String(f.id) === String(product.farm))?.name || product.farm
   
   // Construire le tableau de médias - PHOTO EN PREMIER pour affichage carte
+  // Normaliser toutes les URLs avec getR2Url pour s'assurer qu'elles sont complètes
   const allMedias = []
-  if (product.photo && product.photo.trim()) allMedias.push(product.photo)
-  if (product.image && product.image.trim()) allMedias.push(product.image)
-  if (product.video && product.video.trim()) allMedias.push(product.video)
+  if (product.photo && product.photo.trim()) {
+    const normalizedUrl = getR2Url(product.photo)
+    if (normalizedUrl) allMedias.push(normalizedUrl)
+  }
+  if (product.image && product.image.trim()) {
+    const normalizedUrl = getR2Url(product.image)
+    if (normalizedUrl) allMedias.push(normalizedUrl)
+  }
+  if (product.video && product.video.trim()) {
+    const normalizedUrl = getR2Url(product.video)
+    if (normalizedUrl) allMedias.push(normalizedUrl)
+  }
   
   // Vérifier aussi dans medias si c'est un tableau
   if (product.medias && Array.isArray(product.medias)) {
     product.medias.forEach(media => {
-      if (media && media.trim() && !allMedias.includes(media)) {
-        allMedias.push(media)
+      if (media && media.trim()) {
+        const normalizedUrl = getR2Url(media)
+        if (normalizedUrl && !allMedias.includes(normalizedUrl)) {
+          allMedias.push(normalizedUrl)
+        }
       }
     })
   }
   
   // Afficher le premier média disponible (photo en priorité)
-  const displayImage = allMedias[0] || product.photo || product.image || product.video
+  // Normaliser aussi l'image de fallback
+  const displayImage = allMedias[0] || getR2Url(product.photo) || getR2Url(product.image) || getR2Url(product.video)
   const basePrice = product.variants?.[0]?.price || product.price
   
   // Fonction pour détecter si c'est une vidéo
