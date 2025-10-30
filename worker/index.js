@@ -218,13 +218,29 @@ function safeJSONParse(str, defaultValue = []) {
 
 async function getProducts(env, corsHeaders) {
   const { results } = await env.DB.prepare('SELECT * FROM products ORDER BY createdAt DESC').all()
+  const correctR2Url = 'https://pub-d57130a1bf584539ae011440013f40ad.r2.dev'
   
-  // Parse variants and medias JSON de manière sécurisée
-  const products = results.map(p => ({
-    ...p,
-    variants: safeJSONParse(p.variants, []),
-    medias: safeJSONParse(p.medias, [])
-  }))
+  // Parse variants and medias JSON de manière sécurisée et nettoyer les URLs
+  const products = results.map(p => {
+    let photo = p.photo
+    let video = p.video
+    
+    // Nettoyer les URLs avec placeholder
+    if (photo && photo.includes('VOTRE-URL-R2')) {
+      photo = photo.replace(/https?:\/\/pub-VOTRE-URL-R2\.r2\.dev/, correctR2Url)
+    }
+    if (video && video.includes('VOTRE-URL-R2')) {
+      video = video.replace(/https?:\/\/pub-VOTRE-URL-R2\.r2\.dev/, correctR2Url)
+    }
+    
+    return {
+      ...p,
+      photo,
+      video,
+      variants: safeJSONParse(p.variants, []),
+      medias: safeJSONParse(p.medias, [])
+    }
+  })
 
   return new Response(JSON.stringify(products), {
     headers: { ...corsHeaders, 'Content-Type': 'application/json' }
@@ -241,8 +257,22 @@ async function getProduct(id, env, corsHeaders) {
     })
   }
 
+  const correctR2Url = 'https://pub-d57130a1bf584539ae011440013f40ad.r2.dev'
+  let photo = product.photo
+  let video = product.video
+  
+  // Nettoyer les URLs avec placeholder
+  if (photo && photo.includes('VOTRE-URL-R2')) {
+    photo = photo.replace(/https?:\/\/pub-VOTRE-URL-R2\.r2\.dev/, correctR2Url)
+  }
+  if (video && video.includes('VOTRE-URL-R2')) {
+    video = video.replace(/https?:\/\/pub-VOTRE-URL-R2\.r2\.dev/, correctR2Url)
+  }
+
   return new Response(JSON.stringify({
     ...product,
+    photo,
+    video,
     variants: safeJSONParse(product.variants, []),
     medias: safeJSONParse(product.medias, [])
   }), {
@@ -440,9 +470,28 @@ async function getSettings(env, corsHeaders) {
   const { results } = await env.DB.prepare('SELECT * FROM settings').all()
   
   const settings = {}
+  const correctR2Url = 'https://pub-d57130a1bf584539ae011440013f40ad.r2.dev'
+  
   results.forEach(row => {
     try {
-      settings[row.key] = JSON.parse(row.value)
+      let parsed = JSON.parse(row.value)
+      
+      // Nettoyer les URLs R2 avec placeholder "VOTRE-URL-R2" dans les settings
+      if (parsed.backgroundImage && typeof parsed.backgroundImage === 'string' && parsed.backgroundImage.includes('VOTRE-URL-R2')) {
+        parsed.backgroundImage = parsed.backgroundImage.replace(/https?:\/\/pub-VOTRE-URL-R2\.r2\.dev/, correctR2Url)
+      }
+      
+      // Nettoyer les URLs dans les sections
+      if (parsed.sections && Array.isArray(parsed.sections)) {
+        parsed.sections = parsed.sections.map(section => {
+          if (section.icon && typeof section.icon === 'string' && section.icon.includes('VOTRE-URL-R2')) {
+            section.icon = section.icon.replace(/https?:\/\/pub-VOTRE-URL-R2\.r2\.dev/, correctR2Url)
+          }
+          return section
+        })
+      }
+      
+      settings[row.key] = parsed
     } catch (e) {
       settings[row.key] = row.value
     }
@@ -464,7 +513,24 @@ async function getSetting(key, env, corsHeaders) {
 
   try {
     // On retourne l'objet complet parsé (avec key, shopName, backgroundImage, etc.)
-    const parsedValue = JSON.parse(result.value)
+    let parsedValue = JSON.parse(result.value)
+    
+    // Nettoyer les URLs R2 avec placeholder "VOTRE-URL-R2"
+    const correctR2Url = 'https://pub-d57130a1bf584539ae011440013f40ad.r2.dev'
+    if (parsedValue.backgroundImage && typeof parsedValue.backgroundImage === 'string' && parsedValue.backgroundImage.includes('VOTRE-URL-R2')) {
+      parsedValue.backgroundImage = parsedValue.backgroundImage.replace(/https?:\/\/pub-VOTRE-URL-R2\.r2\.dev/, correctR2Url)
+    }
+    
+    // Nettoyer les URLs dans les sections
+    if (parsedValue.sections && Array.isArray(parsedValue.sections)) {
+      parsedValue.sections = parsedValue.sections.map(section => {
+        if (section.icon && typeof section.icon === 'string' && section.icon.includes('VOTRE-URL-R2')) {
+          section.icon = section.icon.replace(/https?:\/\/pub-VOTRE-URL-R2\.r2\.dev/, correctR2Url)
+        }
+        return section
+      })
+    }
+    
     return new Response(JSON.stringify(parsedValue), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     })
